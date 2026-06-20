@@ -32,7 +32,7 @@ app.use('/api', apiRouter);
 // ── Health Check ──────────────────────────────────────────────────────────────
 app.get('/', (req, res) => {
   res.json({
-    service: 'SACH Kavach — Bharat Trust Grid',
+    service: 'Sach Ka Kavach — Bharat Trust Grid',
     status: 'Operational',
     port: PORT,
     version: '2.0.0',
@@ -63,7 +63,7 @@ const start = async () => {
   if (process.env.VERCEL !== '1') {
     httpServer.listen(PORT, '0.0.0.0', () => {
       console.log('\n╔══════════════════════════════════════════════════════╗');
-      console.log('║     SACH Kavach — Bharat Trust Grid v2.0.0           ║');
+      console.log('║     Sach Ka Kavach — Bharat Trust Grid v2.0.0        ║');
       console.log('║     Continuous Identity Trust Engine (CITE)          ║');
       console.log('╚══════════════════════════════════════════════════════╝\n');
       console.log(`✓ Express API server:    http://0.0.0.0:${PORT}`);

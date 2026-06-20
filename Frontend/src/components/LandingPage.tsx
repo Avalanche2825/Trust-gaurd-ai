@@ -182,7 +182,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
             </div>
             <div>
               <h1 className="text-base font-black text-white tracking-tight flex items-center gap-2 font-outfit">
-                SACH Kavach
+                Sach Ka Kavach
                 <span className="text-[8px] bg-blue-500/20 text-blue-400 border border-blue-500/40 px-2 py-0.5 rounded-full font-mono uppercase font-bold tracking-wider">
                   Active
                 </span>
@@ -296,7 +296,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
             transition={{ delay: 0.2 }}
             className="text-sm text-slate-400 leading-relaxed max-w-lg"
           >
-            SACH Kavach intercepts credential compromises, syndicated duplicate Aadhaar scams, and administrative database inquiries in real time. We replace static locks with dynamic behavioral metrics.
+            Sach Ka Kavach intercepts credential compromises, syndicated duplicate Aadhaar scams, and administrative database inquiries in real time. We replace static locks with dynamic behavioral metrics.
           </motion.p>
 
           <motion.div 
@@ -412,13 +412,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
         <div className="bg-slate-950/60 border border-slate-850 rounded-2xl p-8 shadow-xl space-y-8 backdrop-blur-sm">
           
           <div className="flex flex-wrap gap-2 border-b border-slate-900 pb-4">
-
             <button
               onClick={() => setActiveTab('understanding')}
               className={`py-2 px-6 rounded-xl text-xs font-extrabold transition-all cursor-pointer ${
                 activeTab === 'understanding'
                   ? 'bg-blue-600 text-white'
-                  : 'text-slate-405 hover:bg-slate-900 hover:text-white'
+                  : 'text-slate-400 hover:bg-slate-900 hover:text-white'
               }`}
             >
               🧠 What We Understand By This
@@ -428,7 +427,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
               className={`py-2 px-6 rounded-xl text-xs font-extrabold transition-all cursor-pointer ${
                 activeTab === 'solution'
                   ? 'bg-blue-600 text-white'
-                  : 'text-slate-405 hover:bg-slate-900 hover:text-white'
+                  : 'text-slate-400 hover:bg-slate-900 hover:text-white'
               }`}
             >
               🛡️ Our Detailed Solution
@@ -437,8 +436,6 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
 
           <div className="min-h-[220px]">
             <AnimatePresence mode="wait">
-
-
               {activeTab === 'understanding' && (
                 <motion.div
                   key="understanding"
@@ -446,38 +443,96 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.2 }}
-                  className="space-y-4 text-left"
+                  className="space-y-6 text-left"
                 >
                   <div className="flex items-center gap-3 text-blue-450">
                     <Brain className="w-6 h-6 shrink-0 text-blue-400" />
-                    <h3 className="text-xl font-bold font-outfit">What We Understood: Continuous Identity Ledger</h3>
+                    <h3 className="text-xl font-bold font-outfit">The Core Challenge: Decoupling Trust from Static Gates</h3>
                   </div>
-                  <p className="text-sm text-slate-400 leading-relaxed max-w-4xl">
-                    Traditional security measures operate on a binary assumption: "If static credentials are valid, the user is trusted." This creates a massive loophole once a session is established or when personnel have elevated privileges. Identity is dynamic, not static.
-                  </p>
-                  <p className="text-sm text-slate-400 leading-relaxed max-w-4xl">
-                    We understand that trust must be computed continuously using multi-dimensional telemetry vectors like keyboard/touch cadences, geo-session leaps, new hardware fingerprints, Aadhaar relationship graphs, recovery anomalies, and ticket consent verification. Step-up challenges are engaged in real-time only when risk parameters cross severity limits.
-                  </p>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    {/* Left detailed text */}
+                    <div className="lg:col-span-6 space-y-4">
+                      <p className="text-xs text-slate-300 leading-relaxed">
+                        Traditional security systems depend on a binary, transaction-point assumption: <span className="text-white font-semibold">"If credentials match and MFA is passed, the user is permanently trusted for the session."</span> This static gateway approach creates deep system vulnerabilities.
+                      </p>
+                      
+                      <div className="space-y-3 pt-2">
+                        <div className="flex gap-3 items-start">
+                          <div className="w-6 h-6 rounded bg-red-950/40 border border-red-900/50 flex items-center justify-center shrink-0 text-[10px] font-bold text-red-400 font-mono mt-0.5">1</div>
+                          <div>
+                            <p className="text-xs font-bold text-white">Continuous Session Takeovers (ATO)</p>
+                            <p className="text-[11px] text-slate-400 leading-relaxed">Malicious agents bypass firewalls via session-hijacks, cookie theft, or SIM swaps, draining account balances without triggering traditional authentication challenges.</p>
+                          </div>
+                        </div>
+                        <div className="flex gap-3 items-start">
+                          <div className="w-6 h-6 rounded bg-red-950/40 border border-red-900/50 flex items-center justify-center shrink-0 text-[10px] font-bold text-red-400 font-mono mt-0.5">2</div>
+                          <div>
+                            <p className="text-xs font-bold text-white">Syndicated Identity Fraud (Swarm KYC)</p>
+                            <p className="text-[11px] text-slate-400 leading-relaxed">Fraud rings automate applications using complex relationship graphs of shared hardware fingerprints, similar IP nodes, and duplicate Aadhaar nominee configurations.</p>
+                          </div>
+                        </div>
+                        <div className="flex gap-3 items-start">
+                          <div className="w-6 h-6 rounded bg-red-950/40 border border-red-900/50 flex items-center justify-center shrink-0 text-[10px] font-bold text-red-400 font-mono mt-0.5">3</div>
+                          <div>
+                            <p className="text-xs font-bold text-white">Privileged Internal Vulnerabilities</p>
+                            <p className="text-[11px] text-slate-400 leading-relaxed">Bank employees can query client databases arbitrarily without customer authorization, presenting a major risk of corporate data exfiltration and identity leaks.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right SaaS comparison matrix */}
+                    <div className="lg:col-span-6 border border-slate-850 bg-slate-900/20 rounded-xl p-4 space-y-4">
+                      <div className="flex justify-between items-center pb-2 border-b border-slate-900">
+                        <span className="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-wider">Comparison Matrix</span>
+                        <span className="text-[8px] font-mono text-cyan-400 bg-cyan-950/40 px-2 py-0.5 rounded border border-cyan-900/30">Continuous Analytics</span>
+                      </div>
+                      
+                      <div className="space-y-3 text-[11px]">
+                        <div className="grid grid-cols-2 gap-4 pb-2.5 border-b border-slate-900/60">
+                          <div>
+                            <p className="font-bold text-slate-450 uppercase text-[9px] tracking-wider">Traditional Banking Defense</p>
+                            <p className="text-slate-400 mt-1">Static log-in rules, periodic offline audit ledgers, high-friction static MFA checks.</p>
+                          </div>
+                          <div className="border-l border-slate-900/80 pl-4">
+                            <p className="font-bold text-blue-400 uppercase text-[9px] tracking-wider">Sach Ka Kavach Platform</p>
+                            <p className="text-blue-300 mt-1">Real-time ML telemetry, dynamic risk scoring, zero-friction invisible biometrics.</p>
+                          </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <p className="font-bold text-slate-450 uppercase text-[9px] tracking-wider">Vulnerability Profile</p>
+                            <p className="text-slate-400 mt-1">Susceptible to hijacked sessions, insider database search loops, and brute-force botnets.</p>
+                          </div>
+                          <div className="border-l border-slate-900/80 pl-4">
+                            <p className="font-bold text-blue-400 uppercase text-[9px] tracking-wider">Interception Capabilities</p>
+                            <p className="text-blue-300 mt-1">Stops bot scripts via mathematical time-locks and isolates anomalies instantly via Isolation Forest.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
                   {/* Visual system flow */}
-                  <div className="mt-6 border-t border-slate-900 pt-5 space-y-3">
-                    <h4 className="text-xs font-mono font-bold text-blue-400 uppercase tracking-widest">Multi-signal Identity Telemetry Pipeline</h4>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center text-[10px] font-mono">
-                      <div className="bg-slate-900/50 border border-slate-850 p-2.5 rounded-xl">
-                        <div className="text-blue-400 font-bold mb-1">1. COLLECT</div>
-                        <p className="text-slate-450 leading-normal text-[9px]">Keystroke timings, VPN flags, Device fingerprint signals</p>
+                  <div className="mt-8 border-t border-slate-900 pt-6 space-y-3">
+                    <h4 className="text-xs font-mono font-bold text-blue-400 uppercase tracking-widest">Multi-Signal Identity Telemetry Pipeline</h4>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-[10px] font-mono">
+                      <div className="bg-slate-900/30 border border-slate-850 p-3.5 rounded-xl space-y-1">
+                        <div className="text-blue-400 font-bold">1. TELEMETRY COLLECTION</div>
+                        <p className="text-slate-400 leading-normal text-[9px]">Captures behavioral keyboard timings, device OS integrity parameters, and network proxy states.</p>
                       </div>
-                      <div className="bg-slate-900/50 border border-slate-850 p-2.5 rounded-xl">
-                        <div className="text-cyan-400 font-bold mb-1">2. ANALYZE</div>
-                        <p className="text-slate-450 leading-normal text-[9px]">Flask ML Forest models evaluate vectors</p>
+                      <div className="bg-slate-900/30 border border-slate-850 p-3.5 rounded-xl space-y-1">
+                        <div className="text-cyan-400 font-bold">2. SCALABLE ML EVALUATION</div>
+                        <p className="text-slate-400 leading-normal text-[9px]">Flask services process input signals using Isolation Forest anomalies & Random Forest classifiers.</p>
                       </div>
-                      <div className="bg-slate-900/50 border border-slate-850 p-2.5 rounded-xl">
-                        <div className="text-indigo-400 font-bold mb-1">3. SCORE</div>
-                        <p className="text-slate-450 leading-normal text-[9px]">Grok AI cascades dynamic Trust Score</p>
+                      <div className="bg-slate-900/30 border border-slate-850 p-3.5 rounded-xl space-y-1">
+                        <div className="text-indigo-400 font-bold">3. TRUST DECISION ENGINE</div>
+                        <p className="text-slate-400 leading-normal text-[9px]">Generates dynamic trust scores (0-100) integrated with Grok AI explanations for SOC alerts.</p>
                       </div>
-                      <div className="bg-slate-900/50 border border-slate-850 p-2.5 rounded-xl">
-                        <div className="text-emerald-400 font-bold mb-1">4. INTERCEPT</div>
-                        <p className="text-slate-450 leading-normal text-[9px]">Engage OTP, Escrow Hold, or auto-block policies</p>
+                      <div className="bg-slate-900/30 border border-slate-850 p-3.5 rounded-xl space-y-1">
+                        <div className="text-emerald-400 font-bold">4. ADAPTIVE INTERCEPTION</div>
+                        <p className="text-slate-400 leading-normal text-[9px]">Triggers step-ups dynamically, routes transactions to Guardian escrow, or issues instant threat blocks.</p>
                       </div>
                     </div>
                   </div>
@@ -491,42 +546,38 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.2 }}
-                  className="space-y-4 text-left"
+                  className="space-y-6 text-left"
                 >
                   <div className="flex items-center gap-3 text-emerald-500">
                     <CheckCircle className="w-6 h-6 shrink-0" />
-                    <h3 className="text-xl font-bold font-outfit">Our Solution: SACH Kavach Security Core</h3>
+                    <h3 className="text-xl font-bold font-outfit">The Solution: Sach Ka Kavach Security Architecture</h3>
                   </div>
-                  <p className="text-sm text-slate-400 leading-relaxed max-w-4xl">
-                    We built **SACH Kavach: Bharat Trust Grid**, a complete three-tier continuous identity prototype integrating a React 19 visual console, an Express API gateway, and a Python Flask ML microservice.
+
+                  <p className="text-xs text-slate-300 leading-relaxed max-w-4xl">
+                    We built <span className="text-white font-semibold">Sach Ka Kavach: Bharat Trust Grid</span>, a three-tier active security suite integrating an analytics console, a secure Express gateway, and a Python Flask ML microservice.
                   </p>
-                  <p className="text-sm text-slate-400 leading-relaxed max-w-4xl">
-                    Our solution implements six continuous verification layers:
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-sans">
-                    <div className="p-3.5 bg-slate-900/40 border border-slate-850 rounded-xl space-y-1">
-                      <p className="font-bold text-slate-200">1. Behavioral Biometrics (M1)</p>
-                      <p className="text-slate-450 leading-relaxed text-[11px]">Profiles keystroke interval anomalies via Isolation Forest and features a **Hacker Delay Layer** to isolate bot attacks silently in sandbox timers.</p>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 text-xs font-sans">
+                    <div className="p-4 bg-slate-900/20 border border-slate-850 rounded-xl space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-blue-400" />
+                        <p className="font-bold text-slate-200 uppercase tracking-wide text-[10px] font-mono">1. React 19 visual HUD Console</p>
+                      </div>
+                      <p className="text-slate-400 leading-relaxed text-[11px]">Features real-time session telemetry monitors, escrow transaction logs, secure recovery sandboxes, and hacker delay layer dashboards for manager oversight.</p>
                     </div>
-                    <div className="p-3.5 bg-slate-900/40 border border-slate-850 rounded-xl space-y-1">
-                      <p className="font-bold text-slate-200">2. Account Takeover Lock (M2)</p>
-                      <p className="text-slate-450 leading-relaxed text-[11px]">Locks transfer channels when anonymous proxy centers, VPN nodes, or geo-session jumps are identified.</p>
+                    <div className="p-4 bg-slate-900/20 border border-slate-850 rounded-xl space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-cyan-400" />
+                        <p className="font-bold text-slate-200 uppercase tracking-wide text-[10px] font-mono">2. Express API Gateway</p>
+                      </div>
+                      <p className="text-slate-400 leading-relaxed text-[11px]">Processes authorization payloads, implements JWT credentials, operates Socket.io real-time event broadcasts, and coordinates secure multi-sig escrow parameters.</p>
                     </div>
-                    <div className="p-3.5 bg-slate-900/40 border border-slate-850 rounded-xl space-y-1">
-                      <p className="font-bold text-slate-200">3. New Device Telemetry (M3)</p>
-                      <p className="text-slate-450 leading-relaxed text-[11px]">Uses Random Forest classifiers to flag hardware emulation signatures and suspect SIM swap operations.</p>
-                    </div>
-                    <div className="p-3.5 bg-slate-900/40 border border-slate-850 rounded-xl space-y-1">
-                      <p className="font-bold text-slate-200">4. Swarm Identity Graph (M4)</p>
-                      <p className="text-slate-450 leading-relaxed text-[11px]">Maps PAN/Aadhaar nodes inside a React Flow relation graph to freeze duplicate application syndicates.</p>
-                    </div>
-                    <div className="p-3.5 bg-slate-900/40 border border-slate-850 rounded-xl space-y-1">
-                      <p className="font-bold text-slate-200">5. Secure Recovery Sandbox (M5)</p>
-                      <p className="text-slate-450 leading-relaxed text-[11px]">Enforces artificial delay filters on critical recovery requests and alerts real account owners immediately.</p>
-                    </div>
-                    <div className="p-3.5 bg-slate-900/40 border border-slate-850 rounded-xl space-y-1">
-                      <p className="font-bold text-slate-200">6. Privileged Overwatch (M6)</p>
-                      <p className="text-slate-450 leading-relaxed text-[11px]">Blocks bank employees from looking up accounts unless authorized by a customer OTP support ticket.</p>
+                    <div className="p-4 bg-slate-900/20 border border-slate-850 rounded-xl space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-indigo-400" />
+                        <p className="font-bold text-slate-200 uppercase tracking-wide text-[10px] font-mono">3. Python Flask ML Service</p>
+                      </div>
+                      <p className="text-slate-400 leading-relaxed text-[11px]">Hosts classification algorithms (keystroke profiles via Isolation Forest, device emulation signatures via Random Forest, and PAN/Aadhaar graphs).</p>
                     </div>
                   </div>
 
@@ -534,7 +585,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
                   <div className="mt-8 border-t border-slate-900 pt-6 space-y-4">
                     <div>
                       <h4 className="text-xs font-bold text-white font-outfit uppercase tracking-wider">Dynamic Trust Score Response Matrix</h4>
-                      <p className="text-[11px] text-slate-400">SACH Kavach maps computed real-time client trust scores to automated security policies:</p>
+                      <p className="text-[11px] text-slate-400">Sach Ka Kavach maps computed real-time client trust scores to automated security policies:</p>
                     </div>
                     <div className="overflow-x-auto rounded-xl border border-slate-850 bg-slate-950/40">
                       <table className="w-full text-left border-collapse text-[11px] font-sans">
@@ -551,37 +602,37 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
                           <tr>
                             <td className="p-3 font-bold text-emerald-400 font-mono">80 – 100</td>
                             <td className="p-3">0 – 20 (Low)</td>
-                            <td className="p-3"><code className="bg-slate-900 px-2 py-0.5 rounded text-emerald-400 font-mono">ALLOW</code></td>
-                            <td className="p-3"><span className="text-[9px] font-bold text-emerald-400 bg-emerald-950/40 border border-emerald-900/50 px-2 py-0.5 rounded-full">Approved</span></td>
-                            <td className="p-3">Frictionless transaction clearance</td>
+                            <td className="p-3"><code className="bg-slate-900/60 px-2 py-0.5 rounded text-emerald-400 font-mono border border-emerald-950">ALLOW</code></td>
+                            <td className="p-3"><span className="text-[9px] font-bold text-emerald-400 bg-emerald-950/40 border border-emerald-900/50 px-2.5 py-0.5 rounded-md">Approved</span></td>
+                            <td className="p-3 text-slate-355 font-medium">Clear transactions instantly with zero friction to user.</td>
                           </tr>
                           <tr>
                             <td className="p-3 font-bold text-cyan-400 font-mono">60 – 79</td>
                             <td className="p-3">21 – 40 (Elevated)</td>
-                            <td className="p-3"><code className="bg-slate-900 px-2 py-0.5 rounded text-cyan-400 font-mono">OTP_REQUIRED</code></td>
-                            <td className="p-3"><span className="text-[9px] font-bold text-cyan-400 bg-cyan-950/40 border border-cyan-900/50 px-2 py-0.5 rounded-full">OTP_Required</span></td>
-                            <td className="p-3">Step-up SMS authentication challenge</td>
+                            <td className="p-3"><code className="bg-slate-900/60 px-2 py-0.5 rounded text-cyan-400 font-mono border border-cyan-950">OTP_REQUIRED</code></td>
+                            <td className="p-3"><span className="text-[9px] font-bold text-cyan-400 bg-cyan-950/40 border border-cyan-900/50 px-2.5 py-0.5 rounded-md">OTP_Required</span></td>
+                            <td className="p-3 text-slate-355 font-medium">Trigger step-up authentication challenge via SMS/TOTP.</td>
                           </tr>
                           <tr>
                             <td className="p-3 font-bold text-amber-400 font-mono">40 – 59</td>
                             <td className="p-3">41 – 60 (Medium)</td>
-                            <td className="p-3"><code className="bg-slate-900 px-2 py-0.5 rounded text-amber-400 font-mono">ALERT_CUSTOMER</code></td>
-                            <td className="p-3"><span className="text-[9px] font-bold text-amber-400 bg-amber-950/40 border border-amber-900/50 px-2 py-0.5 rounded-full">CIF_Required</span></td>
-                            <td className="p-3">Soft challenge / Send immediate notification alert</td>
+                            <td className="p-3"><code className="bg-slate-900/60 px-2 py-0.5 rounded text-amber-400 font-mono border border-amber-950">ALERT_CUSTOMER</code></td>
+                            <td className="p-3"><span className="text-[9px] font-bold text-amber-400 bg-amber-950/40 border border-amber-900/50 px-2.5 py-0.5 rounded-md">CIF_Required</span></td>
+                            <td className="p-3 text-slate-355 font-medium">Alert customer on priority channels and flag for review.</td>
                           </tr>
                           <tr>
                             <td className="p-3 font-bold text-orange-400 font-mono">20 – 39</td>
                             <td className="p-3">61 – 80 (High)</td>
-                            <td className="p-3"><code className="bg-slate-900 px-2 py-0.5 rounded text-orange-400 font-mono">HOLD</code></td>
-                            <td className="p-3"><span className="text-[9px] font-bold text-orange-400 bg-orange-950/40 border border-orange-900/50 px-2 py-0.5 rounded-full">Guardian_Required</span></td>
-                            <td className="p-3">Escrow hold; family/trusted Guardian verification required</td>
+                            <td className="p-3"><code className="bg-slate-900/60 px-2 py-0.5 rounded text-orange-400 font-mono border border-orange-950">HOLD</code></td>
+                            <td className="p-3"><span className="text-[9px] font-bold text-orange-400 bg-orange-950/40 border border-orange-900/50 px-2.5 py-0.5 rounded-md">Guardian_Required</span></td>
+                            <td className="p-3 text-slate-355 font-medium">Escrow transaction lock; requires pre-approved family Guardian verification.</td>
                           </tr>
                           <tr>
                             <td className="p-3 font-bold text-red-500 font-mono">0 – 19</td>
                             <td className="p-3">81 – 100 (Severe)</td>
-                            <td className="p-3"><code className="bg-slate-900 px-2 py-0.5 rounded text-red-500 font-mono">BLOCK</code></td>
-                            <td className="p-3"><span className="text-[9px] font-bold text-red-500 bg-red-950/40 border border-red-900/50 px-2 py-0.5 rounded-full">Rejected</span></td>
-                            <td className="p-3">Transaction blocked & logged in SOC for review</td>
+                            <td className="p-3"><code className="bg-slate-900/60 px-2 py-0.5 rounded text-red-500 font-mono border border-red-950">BLOCK</code></td>
+                            <td className="p-3"><span className="text-[9px] font-bold text-red-500 bg-red-950/40 border border-red-900/50 px-2.5 py-0.5 rounded-md">Rejected</span></td>
+                            <td className="p-3 text-slate-355 font-medium">Auto-reject transaction immediately and trigger high-priority SOC alert.</td>
                           </tr>
                         </tbody>
                       </table>
@@ -600,8 +651,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
           <span className="text-[10px] font-mono font-bold text-blue-500 uppercase tracking-widest block font-mono">SECURITY LAYERS BREAKDOWN</span>
           <h3 className="text-3xl lg:text-4xl font-black text-white font-outfit">The 6 Security Modules</h3>
-          <p className="text-xs text-slate-400 leading-relaxed">
-            SACH Kavach executes six layers of real-time interception, checking device signatures, biometric keystrokes, and staff inquiry parameters.
+          <p className="text-xs text-slate-404 leading-relaxed">
+            Sach Ka Kavach executes six layers of real-time interception, checking device signatures, biometric keystrokes, and staff inquiry parameters.
           </p>
         </div>
 
@@ -617,7 +668,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
                   <Icon className="h-5 w-5" />
                 </div>
                 <h4 className="text-base font-extrabold text-white font-outfit">{m.title}</h4>
-                <p className="text-xs text-slate-405 mt-2.5 leading-relaxed">{m.desc}</p>
+                <p className="text-xs text-slate-400 mt-2.5 leading-relaxed">{m.desc}</p>
               </div>
             );
           })}
@@ -629,7 +680,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
           <span className="text-[10px] font-mono font-bold text-blue-500 uppercase tracking-widest block font-mono">TEAM CREDENTIALS</span>
           <h3 className="text-3xl font-extrabold text-white font-outfit">Team Name: Sach Ka Kavach</h3>
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-slate-450 font-mono">
             Bank of Baroda Hackathon 2026 Core Engineering Group
           </p>
         </div>
@@ -639,42 +690,52 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
             <motion.div
               key={idx}
               whileHover={{ y: -6 }}
-              className="bg-slate-950/80 border border-slate-850 p-5 rounded-2xl relative overflow-hidden flex flex-col justify-between min-h-[325px] shadow-lg hover:shadow-blue-500/5 transition duration-300"
+              className="bg-slate-950/80 border border-slate-850 p-5 rounded-2xl relative overflow-hidden flex flex-col justify-between min-h-[360px] shadow-lg hover:shadow-blue-500/5 transition duration-300"
             >
               {/* Card visual background glow */}
               <div className="absolute top-0 right-0 w-24 h-24 bg-blue-650/5 rounded-full blur-2xl pointer-events-none" />
 
               <div className="space-y-4 h-full flex flex-col justify-between">
                 <div className="space-y-3">
-                  {/* Header Avatars and Degree Badge */}
+                  {/* Header Avatars and Role indicator */}
                   <div className="flex justify-between items-center">
-                    <div className="w-10 h-10 rounded-xl bg-blue-900/20 text-blue-450 border border-blue-900/40 flex items-center justify-center font-bold text-xs font-mono uppercase shadow-inner">
+                    <div className="w-10 h-10 rounded-xl bg-blue-900/20 text-blue-455 border border-blue-900/40 flex items-center justify-center font-bold text-xs font-mono uppercase shadow-inner">
                       {m.initial}
                     </div>
-                    <span className="text-[10px] text-blue-400 font-bold bg-blue-900/10 px-2 py-0.5 border border-blue-900/30 rounded-md">
-                      {m.degree}
+                    <span className="text-[8px] font-bold text-blue-400 bg-blue-950/20 border border-blue-900/30 px-2.5 py-1 rounded-md uppercase tracking-wider font-mono">
+                      BOB SEC CORE
                     </span>
                   </div>
 
-                  {/* Name & Role Title */}
+                  {/* Name */}
                   <div>
                     <h4 className="text-sm font-black text-white font-outfit tracking-tight">{m.name}</h4>
-                    <p className="text-[10px] font-bold text-slate-400 mt-1 uppercase font-mono tracking-wider">{m.role}</p>
                   </div>
 
-                  {/* Sub Badges for Year & Branch */}
-                  <div className="flex flex-wrap gap-1.5">
-                    <span className="text-[9px] font-bold text-cyan-400 bg-cyan-950/40 border border-cyan-900/50 px-2 py-0.5 rounded-full">
-                      {m.year}
-                    </span>
-                    <span className="text-[9px] font-bold text-indigo-400 bg-indigo-950/40 border border-indigo-900/50 px-2 py-0.5 rounded-full">
-                      {m.branch}
-                    </span>
+                  {/* Explicit Fields */}
+                  <div className="border-t border-slate-900 pt-2 space-y-1.5 text-[10px] font-mono">
+                    <div className="flex justify-between items-center">
+                      <span className="text-slate-500 uppercase tracking-wider">Degree:</span>
+                      <span className="text-slate-300 font-bold">{m.degree}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-slate-500 uppercase tracking-wider">Year:</span>
+                      <span className="text-slate-300 font-bold">{m.year}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-slate-500 uppercase tracking-wider">Branch:</span>
+                      <span className="text-slate-300 font-bold">{m.branch}</span>
+                    </div>
+                    <div className="flex flex-col pt-1">
+                      <span className="text-slate-500 uppercase tracking-wider mb-0.5">Role:</span>
+                      <span className="text-blue-400 font-bold leading-normal font-sans text-[10.5px]">{m.role}</span>
+                    </div>
                   </div>
                 </div>
 
                 {/* Experience Paragraph */}
-                <div className="border-t border-slate-900/80 pt-3">
+                <div className="border-t border-slate-900 pt-3 text-left">
+                  <span className="text-[9px] font-mono text-slate-500 uppercase tracking-wider block mb-1">Experience:</span>
                   <p className="text-[11px] text-slate-400 leading-relaxed font-sans">
                     {m.experience}
                   </p>
@@ -691,8 +752,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
           <h3 className="text-3xl font-extrabold text-white font-outfit tracking-tight">
             Launch Identity Trust Console
           </h3>
-          <p className="text-xs text-slate-400 leading-relaxed max-w-md mx-auto">
-            Authorize and deploy SACH Kavach parameters instantly. Protect accounts, verify graph Kyc applications, and audit employee privilege limits.
+          <p className="text-xs text-slate-404 leading-relaxed max-w-md mx-auto">
+            Authorize and deploy Sach Ka Kavach parameters instantly. Protect accounts, verify graph Kyc applications, and audit employee privilege limits.
           </p>
           <button 
             onClick={onLaunchConsole}
@@ -706,7 +767,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
 
       {/* Footer */}
       <footer className="max-w-7xl mx-auto px-6 py-10 text-center text-[10px] text-slate-500 font-mono">
-        <p>© 2026 SACH Kavach (Team Sach Ka Kavach). Bank of Baroda Hackathon. All rights reserved.</p>
+        <p>© 2026 Sach Ka Kavach. Bank of Baroda Hackathon. All rights reserved.</p>
       </footer>
 
     </div>

@@ -58,7 +58,7 @@ export default function Sidebar({ user, onLogout }: SidebarProps) {
                 animate={{ opacity: 1 }}
                 className="flex flex-col truncate"
               >
-                <span className="font-extrabold text-xs tracking-tight text-white font-mono uppercase">SACH Kavach</span>
+                <span className="font-extrabold text-[11px] tracking-tight text-white font-mono uppercase">Sach Ka Kavach</span>
                 <span className="text-[9px] text-saffron-400 font-mono tracking-widest leading-none mt-0.5">BHARAT TRUST GRID</span>
               </motion.div>
             )}

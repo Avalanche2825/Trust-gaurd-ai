@@ -80,7 +80,7 @@ export default function Navbar({ user, onLogout, customers = [], transactions = 
             <ShieldCheck className="w-5 h-5 text-white" />
           </div>
           <div className="flex flex-col">
-            <span className="font-extrabold text-xs tracking-tight text-white font-mono uppercase">SACH Kavach</span>
+            <span className="font-extrabold text-[11px] tracking-tight text-white font-mono uppercase">Sach Ka Kavach</span>
             <span className="text-[8px] text-saffron-400 font-mono tracking-widest leading-none mt-0.5">BHARAT TRUST GRID</span>
           </div>
         </div>
