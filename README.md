@@ -1,91 +1,92 @@
-# 🛡️ SACH Kavach — Bharat Trust Grid
+# 🛡️ Sach Ka Kavach — Bharat Trust Grid
 ### *Continuous Identity Trust & Adaptive Risk Interception Engine*
 
-Designed and built for the **Bank of Baroda Hackathon 2026**, **SACH Kavach** is a privacy-first, risk-based Identity Trust Grid that continuously validates customer and enterprise identities across digital channels. Instead of relying on static login locks, it monitors behavioral biometrics, device fingerprints, KYC relationships, and administrative access, triggering step-up authentication and alerts *only* when real-time risk is elevated.
+Designed and built for the **Bank of Baroda Hackathon 2026**, **Sach Ka Kavach** is a privacy-first, continuous risk-based Identity Trust Grid that monitors digital channels in real-time. By moving away from rigid binary logins, the engine continuously re-evaluates identity signals and locks down accounts dynamically, ensuring maximum security for vulnerable demographics with zero friction for normal users.
 
 ---
 
-## 📌 Problem Statement Overview
+## 📌 Understanding of the Problem (Core Vulnerabilities)
 
-Modern digital banking systems face severe vulnerabilities:
-1. **Account Takeover (ATO)**: Sophisticated credential stuffing, session hijacking, and SIM swap exploits bypass standard username/password challenges.
-2. **KYC & Identity Fraud**: Synthetic identities and syndicates register multiple accounts using duplicate/recycled device fingerprints, Aadhaar metrics, or locations.
-3. **Insider Misuse**: Privileged bank staff querying customer records without explicit authorization, leading to data leaks and fraud.
-4. **Static Friction**: Forcing multi-factor challenges (MFA) on every single action degrades user experience.
-
-### Expected Outcomes of SACH Kavach
-- **Friction-Optimized Access**: Low-risk users enjoy frictionless journeys; challenges are triggered dynamically only for anomalous events.
-- **Comprehensive Protection**: Real-time detection of account hijack attempts, synthetic onboarding networks, and privileged insider overreach.
-- **Inter-channel Scalability**: A modular architecture ready to scale across retail, corporate, and mobile channels.
+Traditional banking security structures suffer from fundamental flaws:
+1. **Inadequacy of Static Credentials**: Passwords and static OTPs are no longer sufficient against modern phishing, SIM swaps, and credential theft.
+2. **Binary, Point-in-Time Verification**: Existing systems verify identity only once during login and do not continuously assess whether the user is still the genuine account holder.
+3. **Undetected Hijacking Signals**: Account takeover attempts go unnoticed despite indicators like unusual transaction amounts, abnormal login cadences, location changes, or new device signatures.
+4. **Weak KYC Onboarding Pipelines**: Fraudsters create fake, mule, or synthetic accounts by exploiting gaps in the KYC registration checks.
+5. **Vulnerable Account Recovery Loops**: Suspicious account recovery requests (password resets or mobile changes) are misused to hijack profiles.
+6. **Privileged Insider Misuse**: Bank employees can query customer records arbitrarily without immediate real-time authorization checks.
+7. **Exploitation of Vulnerable Demographics**: Elderly, hospitalized, unconscious, or digitally less-aware customers cannot immediately recognize or respond to fraud.
+8. **High Friction, Low Security**: A one-size-fits-all security approach creates unnecessary friction for genuine customers while failing to stop sophisticated fraud.
 
 ---
 
-## ⚙️ Architecture & Data Flow
+## ⚙️ Our Detailed Solution (The Sach Ka Kavach Engine)
 
-SACH Kavach operates on a decoupled microservices model:
+Our platform addresses these vulnerabilities through a multi-dimensional approach:
+* **Continuous Dynamic Risk Scoring Engine**: Calculates real-time trust scores (0–100) based on keyboard biometrics, hardware fingerprinting, impossible geo-speed session hops, relationship clustering (Aadhaar & PAN networks), password reset triggers, and privilege lookup parameters. Critically, it incorporates human and situational safety variables to protect accounts belonging to vulnerable, unconscious, or hospitalized demographics.
+* **Adaptive Interception Policies**: Instead of absolute locks, step-up verification metrics (OTP verification, Customer ID checks, trusted family Guardian authorizations, and automated mathematical sandbox delays) are triggered only when threat parameters exceed predefined thresholds.
 
+---
+
+## 📊 System Architecture & Data Flow
+
+```mermaid
+graph TD
+    %% Styling
+    classDef default fill:#0d1527,stroke:#1e293b,stroke-width:1px,color:#cbd5e1;
+    classDef client fill:#1e1b4b,stroke:#312e81,stroke-width:1.5px,color:#a5b4fc;
+    classDef gateway fill:#062033,stroke:#083344,stroke-width:1.5px,color:#22d3ee;
+    classDef ml fill:#141b2b,stroke:#022c22,stroke-width:1.5px,color:#34d399;
+
+    subgraph ClientTier ["Client Tier (React 19 Console)"]
+        A["Dashboard & Telemetry HUD"]:::client
+        B["Hacker Delay sandbox timers"]:::client
+    end
+
+    subgraph GatewayTier ["Gateway Tier (Express API Server)"]
+        API["Node.js Express App"]:::gateway
+        DB[("MongoDB Atlas")]:::gateway
+        SIO["Socket.io Event Broker"]:::gateway
+    end
+
+    subgraph MLTier ["AI/ML Tier (Flask Microservice)"]
+        ML["Flask Predict App"]:::ml
+        M1["Keystroke Dynamics (Isolation Forest)"]:::ml
+        M2["Device Fingerprints (Random Forest)"]:::ml
+        M3["Swarm Node KYC relationship graph"]:::ml
+        LLM["xAI Grok Dynamic Explainer"]:::ml
+    end
+
+    %% Connections
+    A -->|1. Real-time typing dynamics| API
+    A -->|2. Device OS/Emulator metrics| API
+    A -->|3. Nominee KYC networks| API
+    API -->|4. Store Event logs| DB
+    API -->|5. Broadcast SOC Alerts| SIO
+    API -->|6. JSON vector payload| ML
+    ML --> M1
+    ML --> M2
+    ML --> M3
+    API -->|7. Generate Explanation| LLM
 ```
-[ Client Browser (React 19) ]
-           │ (Vite Proxy / API)
-           ▼
-[ Node.js Express API Server ] ── (Real-time events) ──► [ Admin Dashboard / Alert HUD ]
-           │
-           ├─► [ Python Flask ML Service ] 
-           │       ├── Isolation Forest (Behavioral Anomaly)
-           │       ├── Random Forest (Device Spoof Classification)
-           │       └── Aadhaar & IP Clustered KYC Graph
-           │
-           └─► [ AI Cascade System ]
-                   └── Grok-3-Mini ──► Llama-3.3-70b ──► Rule Heuristics
+
+---
+
+## 🔄 Dynamic Risk Interception Flow
+
+```mermaid
+graph LR
+    classDef decision fill:#172554,stroke:#1e40af,color:#93c5fd;
+    classDef action fill:#022c22,stroke:#064e3b,color:#6ee7b7;
+
+    A["Collect Telemetry Timing & OS Vectors"]:::decision --> B["Calculate Dynamic Trust Score (0-100)"]:::decision
+    B --> C{"Check Score Band"}:::decision
+    
+    C -->|80 - 100| D["Policy: ALLOW (Frictionless)"]:::action
+    C -->|60 - 79| E["Policy: OTP_REQUIRED (SMS Step-up)"]:::action
+    C -->|40 - 59| F["Policy: ALERT_CUSTOMER (CIF logs)"]:::action
+    C -->|20 - 39| G["Policy: HOLD (Guardian multi-sig)"]:::action
+    C -->|0 - 19| H["Policy: BLOCK (SOC Locked)"]:::action
 ```
-
----
-
-## 🚀 The 6 Shield Modules of SACH Kavach
-
-### 🛡️ Module 1: Behavioral Biometrics (Typing Cadence Profiling)
-- **Concept**: Learns a customer's typing behavior (keystroke press durations and flight intervals between keys).
-- **Engine**: A client-side keystroke logger captures timings, which are parsed by a Python **Isolation Forest** model to establish a behavioral baseline.
-- **Interception**: Script injections, botnets, and credential-stuffers are identified by typing speed deviations, locking out transactions before execution.
-
-### 🛡️ Module 2: Account Takeover (ATO) Prevention
-- **Concept**: Continuously calculates a dynamic trust score (0–100) using real-time attributes.
-- **Engine**: Evaluates geo-velocity (impossible travel speed), new device fingerprinting, OS mismatches, active VPN/proxy detection, and SIM swap flags.
-- **Action**: Directs transactions to a risk matrix: Allow, OTP Challenge, CIF Alert, Escrow hold, or Hard Block.
-
-### 🛡️ Module 3: Suspicious Onboarding Prevention (KYC Graph)
-- **Concept**: Analyzes registration relationships to spot synthetic identity rings.
-- **Engine**: A relationship graph checks combinations of Aadhaar, PAN, device fingerprint, and IP address.
-- **Interception**: Flags applications that attempt to reuse credentials across distinct identities (syndicates) and holds them for human review.
-
-### 🛡️ Module 4: Elevated Risk Escalations (Guardian Console)
-- **Concept**: Multi-signature step-up authorization for high-value or elevated-risk transactions.
-- **Engine**: Holds transactions in secure escrow.
-- **Interception**: Triggers a notification to a pre-registered family member or trusted **Guardian** via SMS. The transaction remains locked until authorized by the Guardian.
-
-### 🛡️ Module 5: Hacker Delay Layer
-- **Concept**: Adds mathematical friction to slow down brute-force scripts.
-- **Engine**: Implements dynamic time-locks and proof-of-work (PoW) computation cycles.
-- **Action**: When attack velocity spikes, the backend dynamically increases processing delays, turning a sub-second exploit script into a crawl.
-
-### 🛡️ Module 6: Insider Threat Overwatch (Staff Access Control)
-- **Concept**: Mitigates administrative database snooping.
-- **Engine**: Establishes a **Customer Consent Ticket** protocol.
-- **Action**: Bank staff are forbidden from searching customer records unless the customer has raised a support ticket and authorized it via OTP. Unauthorized lookups trigger immediate high-priority manager escalations and block access.
-
----
-
-## 📊 Dynamic Trust Score Response Matrix
-
-SACH Kavach evaluates transactions in real-time, mapping them to the following automated policies:
-
-| Dynamic Trust Score | Risk Score | Policy Action | Status | Meaning / Action |
-| :--- | :--- | :--- | :--- | :--- |
-| **80 – 100** | 0 – 20 | `ALLOW` | Approved | Frictionless clearance |
-| **60 – 79** | 21 – 40 | `OTP_REQUIRED` | OTP_Required | Step-up SMS challenge |
-| **40 – 59** | 41 – 60 | `ALERT_CUSTOMER` | CIF_Required | Soft challenge / Alert user |
-| **20 – 39** | 61 – 80 | `HOLD` | Guardian_Required | Escrow lock; Guardian multi-sig |
-| **0 – 19** | 81 – 100 | `BLOCK` | Rejected | Auto-blocked & SOC logged |
 
 ---
 
@@ -103,10 +104,21 @@ SACH Kavach evaluates transactions in real-time, mapping them to the following a
 
 ## 👥 The Development Team — Sach Ka Kavach
 
-* **Chitra Saini** (Team Leader) — Frontend Architecture & Onboarding UX
-* **Abhyuday Jain** — Backend Services & Escrow Security Pipelines
-* **Hardik Mathur** — Machine Learning Models & System Integrations
-* **Siddharth Raut** — Risk Algorithms & Threat Overwatch Workflows
+* **Chitra Saini** (Team Leader) 
+  * **Role**: Frontend Architecture & Onboarding UX
+  * **Gmail**: [chitrasaini.dev@gmail.com](mailto:chitrasaini.dev@gmail.com)
+  
+* **Abhyuday Jain** 
+  * **Role**: Backend Services & Escrow Security Pipelines
+  * **Gmail**: [abhyudayjain.security@gmail.com](mailto:abhyudayjain.security@gmail.com)
+  
+* **Hardik Mathur** 
+  * **Role**: Machine Learning Models & System Integrations
+  * **Gmail**: [hardikmathur11@gmail.com](mailto:hardikmathur11@gmail.com)
+  
+* **Siddharth Raut** 
+  * **Role**: Risk Algorithms & Threat Overwatch Workflows
+  * **Gmail**: [siddharthraut.risk@gmail.com](mailto:siddharthraut.risk@gmail.com)
 
 ---
 
