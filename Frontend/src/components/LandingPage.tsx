@@ -35,7 +35,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
   const [sliderDevice, setSliderDevice] = useState<boolean>(false);
   const [sliderKeystroke, setSliderKeystroke] = useState<boolean>(false);
   const [sliderGeo, setSliderGeo] = useState<boolean>(false);
-  const [activeTab, setActiveTab] = useState<'problem' | 'understanding' | 'solution'>('problem');
+  const [activeTab, setActiveTab] = useState<'understanding' | 'solution'>('understanding');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 
@@ -79,10 +79,42 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
   }, []);
 
   const teamMembers = [
-    { name: "Chitra Saini (Leader)", initial: "CS" },
-    { name: "Abhyuday Jain", initial: "AJ" },
-    { name: "Hardik Mathur", initial: "HM" },
-    { name: "Siddharth Raut", initial: "SR" }
+    {
+      name: "Chitra Saini",
+      initial: "CS",
+      degree: "BTECH",
+      year: "3rd Year",
+      branch: "Chemical Engineering",
+      role: "Team Leader — Frontend Architecture & Onboarding UX",
+      experience: "Graphic Designer & Frontend Architect. Expert in responsive layouts, visual design systems, and intuitive user onboarding dashboards."
+    },
+    {
+      name: "Abhyuday Jain",
+      initial: "AJ",
+      degree: "BTECH",
+      year: "4th Year",
+      branch: "IT",
+      role: "Backend Services & Escrow Security Pipelines",
+      experience: "Cyber Security and AI/ML Expert. 9x Hackathon Finalist. Specialized in Express routing, MongoDB architectures, and multi-signature escrow logic."
+    },
+    {
+      name: "Hardik Mathur",
+      initial: "HM",
+      degree: "BTECH",
+      year: "4th Year",
+      branch: "CSE",
+      role: "Machine Learning Models & System Integrations",
+      experience: "4X Hackathon Finalist & Open Source Winner. Focuses on integrating Python ML services (Isolation Forest, Random Forest) with frontend telemetry APIs."
+    },
+    {
+      name: "Siddharth Raut",
+      initial: "SR",
+      degree: "BTECH",
+      year: "4th Year",
+      branch: "IT",
+      role: "Risk Algorithms & Threat Overwatch Workflows",
+      experience: "Cyber Security and AI/ML Expert. 2x Hackathon Finalist & 1x Winner. Specialized in security policies, risk evaluation rules, and OTP privileged gateways."
+    }
   ];
 
   const modules = [
@@ -380,16 +412,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
         <div className="bg-slate-950/60 border border-slate-850 rounded-2xl p-8 shadow-xl space-y-8 backdrop-blur-sm">
           
           <div className="flex flex-wrap gap-2 border-b border-slate-900 pb-4">
-            <button
-              onClick={() => setActiveTab('problem')}
-              className={`py-2 px-6 rounded-xl text-xs font-extrabold transition-all cursor-pointer ${
-                activeTab === 'problem'
-                  ? 'bg-blue-600 text-white'
-                  : 'text-slate-405 hover:bg-slate-900 hover:text-white'
-              }`}
-            >
-              ⚠️ Problem Statement
-            </button>
+
             <button
               onClick={() => setActiveTab('understanding')}
               className={`py-2 px-6 rounded-xl text-xs font-extrabold transition-all cursor-pointer ${
@@ -414,30 +437,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
 
           <div className="min-h-[220px]">
             <AnimatePresence mode="wait">
-              {activeTab === 'problem' && (
-                <motion.div
-                  key="problem"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.2 }}
-                  className="space-y-4 text-left"
-                >
-                  <div className="flex items-center gap-3 text-red-500">
-                    <ShieldAlert className="w-6 h-6 shrink-0" />
-                    <h3 className="text-xl font-bold font-outfit">The Challenge: Privacy-First Continuous Identity Trust</h3>
-                  </div>
-                  <p className="text-sm text-slate-400 leading-relaxed max-w-4xl">
-                    The challenge aims to design a privacy-first, risk-based Identity Trust framework that continuously validates customer and enterprise identities across digital channels. The solution should be capable of detecting high-risk events such as anomalous behavior, new device usage, suspicious onboarding or account recovery attempts, and misuse of privileged access. It should trigger real-time verification only when risk levels are elevated.
-                  </p>
-                  <p className="text-sm text-slate-400 leading-relaxed max-w-4xl">
-                    The expected outcomes include a reduction in account takeover incidents, KYC fraud, and insider misuse, while ensuring secure, compliant, and friction-optimized digital access. The proposed solution should be scalable across multiple banking channels as user and transaction volumes grow.
-                  </p>
-                  <p className="text-xs text-saffron-400 leading-relaxed font-mono uppercase tracking-wide">
-                    ⚠️ We strongly believe that collaboration with your esteemed institution will bring significant academic depth, research rigor, and innovative student participation to this initiative.
-                  </p>
-                </motion.div>
-              )}
+
 
               {activeTab === 'understanding' && (
                 <motion.div
@@ -557,21 +557,47 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
           {teamMembers.map((m, idx) => (
             <motion.div
               key={idx}
-              whileHover={{ y: -4 }}
-              className="bg-slate-950/80 border border-slate-850 p-5 rounded-2xl relative overflow-hidden flex flex-col justify-between h-[145px] shadow"
+              whileHover={{ y: -6 }}
+              className="bg-slate-950/80 border border-slate-850 p-5 rounded-2xl relative overflow-hidden flex flex-col justify-between min-h-[325px] shadow-lg hover:shadow-blue-500/5 transition duration-300"
             >
               {/* Card visual background glow */}
-              <div className="absolute top-0 right-0 w-16 h-16 bg-blue-650/5 rounded-full blur-xl pointer-events-none" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-blue-650/5 rounded-full blur-2xl pointer-events-none" />
 
-              <div className="flex justify-between items-start">
-                <div className="w-10 h-10 rounded-xl bg-blue-900/20 text-blue-450 border border-blue-900/40 flex items-center justify-center font-bold text-xs font-mono uppercase">
-                  {m.initial}
+              <div className="space-y-4 h-full flex flex-col justify-between">
+                <div className="space-y-3">
+                  {/* Header Avatars and Degree Badge */}
+                  <div className="flex justify-between items-center">
+                    <div className="w-10 h-10 rounded-xl bg-blue-900/20 text-blue-450 border border-blue-900/40 flex items-center justify-center font-bold text-xs font-mono uppercase shadow-inner">
+                      {m.initial}
+                    </div>
+                    <span className="text-[10px] text-blue-400 font-bold bg-blue-900/10 px-2 py-0.5 border border-blue-900/30 rounded-md">
+                      {m.degree}
+                    </span>
+                  </div>
+
+                  {/* Name & Role Title */}
+                  <div>
+                    <h4 className="text-sm font-black text-white font-outfit tracking-tight">{m.name}</h4>
+                    <p className="text-[10px] font-bold text-slate-400 mt-1 uppercase font-mono tracking-wider">{m.role}</p>
+                  </div>
+
+                  {/* Sub Badges for Year & Branch */}
+                  <div className="flex flex-wrap gap-1.5">
+                    <span className="text-[9px] font-bold text-cyan-400 bg-cyan-950/40 border border-cyan-900/50 px-2 py-0.5 rounded-full">
+                      {m.year}
+                    </span>
+                    <span className="text-[9px] font-bold text-indigo-400 bg-indigo-950/40 border border-indigo-900/50 px-2 py-0.5 rounded-full">
+                      {m.branch}
+                    </span>
+                  </div>
                 </div>
-                <ArrowUpRight className="w-4 h-4 text-slate-500" />
-              </div>
 
-              <div>
-                <h4 className="text-sm font-black text-white font-outfit">{m.name}</h4>
+                {/* Experience Paragraph */}
+                <div className="border-t border-slate-900/80 pt-3">
+                  <p className="text-[11px] text-slate-400 leading-relaxed font-sans">
+                    {m.experience}
+                  </p>
+                </div>
               </div>
             </motion.div>
           ))}

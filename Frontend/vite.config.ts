@@ -15,7 +15,18 @@ export default defineConfig(() => {
       proxy: {
         '/api': {
           target: 'http://localhost:4000',
-          changeOrigin: true
+          changeOrigin: true,
+          configure: (proxy, _options) => {
+            proxy.on('error', (err, _req, res) => {
+              if (err.message.includes('ECONNREFUSED')) {
+                // Return a clean 503 instead of letting the server log stack traces
+                if (!res.headersSent) {
+                  res.writeHead(503, { 'Content-Type': 'application/json' });
+                  res.end(JSON.stringify({ error: 'Backend offline', details: err.message }));
+                }
+              }
+            });
+          }
         }
       },
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
