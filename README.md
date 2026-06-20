@@ -101,7 +101,7 @@ SACH Kavach evaluates transactions in real-time, mapping them to the following a
 
 ---
 
-## 👥 The Development Team
+## 👥 The Development Team — Sach Ka Kavach
 
 * **Chitra Saini** (Team Leader) — Frontend Architecture & Onboarding UX
 * **Abhyuday Jain** — Backend Services & Escrow Security Pipelines

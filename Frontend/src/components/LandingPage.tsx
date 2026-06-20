@@ -458,6 +458,29 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
                   <p className="text-sm text-slate-400 leading-relaxed max-w-4xl">
                     We understand that trust must be computed continuously using multi-dimensional telemetry vectors like keyboard/touch cadences, geo-session leaps, new hardware fingerprints, Aadhaar relationship graphs, recovery anomalies, and ticket consent verification. Step-up challenges are engaged in real-time only when risk parameters cross severity limits.
                   </p>
+
+                  {/* Visual system flow */}
+                  <div className="mt-6 border-t border-slate-900 pt-5 space-y-3">
+                    <h4 className="text-xs font-mono font-bold text-blue-400 uppercase tracking-widest">Multi-signal Identity Telemetry Pipeline</h4>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center text-[10px] font-mono">
+                      <div className="bg-slate-900/50 border border-slate-850 p-2.5 rounded-xl">
+                        <div className="text-blue-400 font-bold mb-1">1. COLLECT</div>
+                        <p className="text-slate-450 leading-normal text-[9px]">Keystroke timings, VPN flags, Device fingerprint signals</p>
+                      </div>
+                      <div className="bg-slate-900/50 border border-slate-850 p-2.5 rounded-xl">
+                        <div className="text-cyan-400 font-bold mb-1">2. ANALYZE</div>
+                        <p className="text-slate-450 leading-normal text-[9px]">Flask ML Forest models evaluate vectors</p>
+                      </div>
+                      <div className="bg-slate-900/50 border border-slate-850 p-2.5 rounded-xl">
+                        <div className="text-indigo-400 font-bold mb-1">3. SCORE</div>
+                        <p className="text-slate-450 leading-normal text-[9px]">Grok AI cascades dynamic Trust Score</p>
+                      </div>
+                      <div className="bg-slate-900/50 border border-slate-850 p-2.5 rounded-xl">
+                        <div className="text-emerald-400 font-bold mb-1">4. INTERCEPT</div>
+                        <p className="text-slate-450 leading-normal text-[9px]">Engage OTP, Escrow Hold, or auto-block policies</p>
+                      </div>
+                    </div>
+                  </div>
                 </motion.div>
               )}
 
@@ -506,6 +529,64 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
                       <p className="text-slate-450 leading-relaxed text-[11px]">Blocks bank employees from looking up accounts unless authorized by a customer OTP support ticket.</p>
                     </div>
                   </div>
+
+                  {/* Dynamic Risk Scoring Matrix visual table */}
+                  <div className="mt-8 border-t border-slate-900 pt-6 space-y-4">
+                    <div>
+                      <h4 className="text-xs font-bold text-white font-outfit uppercase tracking-wider">Dynamic Trust Score Response Matrix</h4>
+                      <p className="text-[11px] text-slate-400">SACH Kavach maps computed real-time client trust scores to automated security policies:</p>
+                    </div>
+                    <div className="overflow-x-auto rounded-xl border border-slate-850 bg-slate-950/40">
+                      <table className="w-full text-left border-collapse text-[11px] font-sans">
+                        <thead>
+                          <tr className="border-b border-slate-850 bg-slate-900/30 text-slate-300 font-bold">
+                            <th className="p-3">Dynamic Trust Score</th>
+                            <th className="p-3">Risk Level</th>
+                            <th className="p-3">Policy Action</th>
+                            <th className="p-3">Status Badge</th>
+                            <th className="p-3">Action Description</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-900 text-slate-400">
+                          <tr>
+                            <td className="p-3 font-bold text-emerald-400 font-mono">80 – 100</td>
+                            <td className="p-3">0 – 20 (Low)</td>
+                            <td className="p-3"><code className="bg-slate-900 px-2 py-0.5 rounded text-emerald-400 font-mono">ALLOW</code></td>
+                            <td className="p-3"><span className="text-[9px] font-bold text-emerald-400 bg-emerald-950/40 border border-emerald-900/50 px-2 py-0.5 rounded-full">Approved</span></td>
+                            <td className="p-3">Frictionless transaction clearance</td>
+                          </tr>
+                          <tr>
+                            <td className="p-3 font-bold text-cyan-400 font-mono">60 – 79</td>
+                            <td className="p-3">21 – 40 (Elevated)</td>
+                            <td className="p-3"><code className="bg-slate-900 px-2 py-0.5 rounded text-cyan-400 font-mono">OTP_REQUIRED</code></td>
+                            <td className="p-3"><span className="text-[9px] font-bold text-cyan-400 bg-cyan-950/40 border border-cyan-900/50 px-2 py-0.5 rounded-full">OTP_Required</span></td>
+                            <td className="p-3">Step-up SMS authentication challenge</td>
+                          </tr>
+                          <tr>
+                            <td className="p-3 font-bold text-amber-400 font-mono">40 – 59</td>
+                            <td className="p-3">41 – 60 (Medium)</td>
+                            <td className="p-3"><code className="bg-slate-900 px-2 py-0.5 rounded text-amber-400 font-mono">ALERT_CUSTOMER</code></td>
+                            <td className="p-3"><span className="text-[9px] font-bold text-amber-400 bg-amber-950/40 border border-amber-900/50 px-2 py-0.5 rounded-full">CIF_Required</span></td>
+                            <td className="p-3">Soft challenge / Send immediate notification alert</td>
+                          </tr>
+                          <tr>
+                            <td className="p-3 font-bold text-orange-400 font-mono">20 – 39</td>
+                            <td className="p-3">61 – 80 (High)</td>
+                            <td className="p-3"><code className="bg-slate-900 px-2 py-0.5 rounded text-orange-400 font-mono">HOLD</code></td>
+                            <td className="p-3"><span className="text-[9px] font-bold text-orange-400 bg-orange-950/40 border border-orange-900/50 px-2 py-0.5 rounded-full">Guardian_Required</span></td>
+                            <td className="p-3">Escrow hold; family/trusted Guardian verification required</td>
+                          </tr>
+                          <tr>
+                            <td className="p-3 font-bold text-red-500 font-mono">0 – 19</td>
+                            <td className="p-3">81 – 100 (Severe)</td>
+                            <td className="p-3"><code className="bg-slate-900 px-2 py-0.5 rounded text-red-500 font-mono">BLOCK</code></td>
+                            <td className="p-3"><span className="text-[9px] font-bold text-red-500 bg-red-950/40 border border-red-900/50 px-2 py-0.5 rounded-full">Rejected</span></td>
+                            <td className="p-3">Transaction blocked & logged in SOC for review</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -547,7 +628,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
       <section id="team" className="max-w-7xl mx-auto px-6 py-20 border-t border-slate-900/60 bg-gradient-to-b from-[#070b13] to-[#04070d]">
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
           <span className="text-[10px] font-mono font-bold text-blue-500 uppercase tracking-widest block font-mono">TEAM CREDENTIALS</span>
-          <h3 className="text-3xl font-extrabold text-white font-outfit">Team Name: Sach Kavach</h3>
+          <h3 className="text-3xl font-extrabold text-white font-outfit">Team Name: Sach Ka Kavach</h3>
           <p className="text-xs text-slate-400">
             Bank of Baroda Hackathon 2026 Core Engineering Group
           </p>
@@ -625,7 +706,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
 
       {/* Footer */}
       <footer className="max-w-7xl mx-auto px-6 py-10 text-center text-[10px] text-slate-500 font-mono">
-        <p>© 2026 SACH Kavach (Team TrustGrid Shield). Bank of Baroda Hackathon. All rights reserved.</p>
+        <p>© 2026 SACH Kavach (Team Sach Ka Kavach). Bank of Baroda Hackathon. All rights reserved.</p>
       </footer>
 
     </div>

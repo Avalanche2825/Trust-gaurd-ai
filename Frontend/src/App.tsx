@@ -65,8 +65,31 @@ function AppRoutes() {
 
   const [loading, setLoading] = useState(false);
 
+  const [apiOffline, setApiOffline] = useState(() => localStorage.getItem("sach_offline_mode") === "true");
+
   // --- CORE DATA SYNCHRONIZER LOOP ---
-  const fetchAllData = async () => {
+  const fetchAllData = async (forceCheckOffline = false) => {
+    let isOffline = apiOffline;
+    if (forceCheckOffline) {
+      if (window.location.hostname === "localhost") {
+        try {
+          const res = await fetch("http://localhost:4000/", { mode: "cors" });
+          isOffline = !res.ok;
+        } catch (e) {
+          isOffline = true;
+        }
+      } else {
+        isOffline = false;
+      }
+      localStorage.setItem("sach_offline_mode", isOffline ? "true" : "false");
+      setApiOffline(isOffline);
+    }
+
+    if (isOffline) {
+      console.warn("Express API Server offline. Operating in client-side Standalone Demo mode.");
+      return;
+    }
+
     setLoading(true);
     try {
       const [uRes, tRes, kRes, eRes, aRes] = await Promise.all([
@@ -105,7 +128,25 @@ function AppRoutes() {
   };
 
   useEffect(() => {
-    fetchAllData();
+    const init = async () => {
+      let isOffline = true;
+      if (window.location.hostname === "localhost") {
+        try {
+          const res = await fetch("http://localhost:4000/", { mode: "cors" });
+          if (res.ok) isOffline = false;
+        } catch (e) {
+          isOffline = true;
+        }
+      } else {
+        isOffline = false;
+      }
+      localStorage.setItem("sach_offline_mode", isOffline ? "true" : "false");
+      setApiOffline(isOffline);
+      if (!isOffline) {
+        fetchAllData(false);
+      }
+    };
+    init();
   }, []);
 
   // Fetch guardian whenever customer selection transitions
