@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'TrustGuard_AI_SACH_Kavach_2026';
+const JWT_SECRET = process.env.JWT_SECRET || 'SACH_Kavach_2026';
 
 export const loginUser = async (req, res) => {
   try {

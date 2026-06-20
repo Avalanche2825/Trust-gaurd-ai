@@ -334,7 +334,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLaunchConsole }) => 
             <div className="flex justify-between items-center pb-3 border-b border-slate-900 text-xs">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span className="font-mono font-bold text-slate-400">TrustGuard AI Live Stream</span>
+                <span className="font-mono font-bold text-slate-400">Sach Ka Kavach Live Stream</span>
               </div>
               <span className="text-[9px] text-blue-400 font-mono">Real-time Telemetry</span>
             </div>
